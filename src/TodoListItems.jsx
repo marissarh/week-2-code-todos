@@ -1,25 +1,19 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const TodoListItems = ({todos}) => {
-
+const TodoListItems = ({ todos }) => {
   return (
     <div>
       <ul>
         {todos.map((todo, index) => {
-          return (
-            <li key={`todo-${index}`}>{todo}</li>
-          )
+          return <li key={`todo-${index}`}>{todo}</li>;
         })}
       </ul>
-
     </div>
-
- 
-  )
-}
+  );
+};
 
 TodoListItems.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.string).isRequired
-}
+  todos: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default TodoListItems;
