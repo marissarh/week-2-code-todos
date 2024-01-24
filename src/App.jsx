@@ -6,11 +6,11 @@ import TodoForm from "./TodoForm";
 function App() {
   const [itemToAdd, setItemToAdd] = useState("");
   const [todos, setTodos] = useState([
-    "wash dishes",
-    "mop floor",
-    "teach class",
-    "cook food",
-    "tune guitar",
+    { text: "wash dishes", isCompleted: false },
+    { text: "mop floor", isCompleted: false },
+    { text: "teach class", isCompleted: false },
+    { text: "cook food", isCompleted: false },
+    { text: "tune guitar", isCompleted: false },
   ]);
 
   const addItem = (event) => {
@@ -21,13 +21,18 @@ function App() {
       return;
     }
 
-    setTodos([...todos, itemToAdd]);
+    setTodos([...todos, { text: itemToAdd, isCompleted: false }]);
     setItemToAdd("");
   };
 
   return (
     <>
-      <TodoForm addItem={addItem} itemToAdd={itemToAdd} setItemToAdd={setItemToAdd} setTodos={setTodos} />
+      <TodoForm
+        addItem={addItem}
+        itemToAdd={itemToAdd}
+        setItemToAdd={setItemToAdd}
+        setTodos={setTodos}
+      />
       <TodoListItems todos={todos} setTodos={setTodos} />
     </>
   );

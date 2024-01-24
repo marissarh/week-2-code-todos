@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const TodoForm = ({addItem, itemToAdd, setItemToAdd, setTodos}) => {
-  const handleClear = ()=> {
-      setTodos([])
-  }
+const TodoForm = ({ addItem, itemToAdd, setItemToAdd, setTodos }) => {
+  const handleClear = () => {
+    setTodos([]);
+  };
 
   return (
     <>
@@ -20,16 +20,14 @@ const TodoForm = ({addItem, itemToAdd, setItemToAdd, setTodos}) => {
       </form>
       <button onClick={() => handleClear()}>Clear Todos</button>
     </>
-  )
-
-}
+  );
+};
 
 TodoForm.propTypes = {
   itemToAdd: PropTypes.string,
   addItem: PropTypes.func,
   setItemToAdd: PropTypes.func,
-  setTodos: PropTypes.func
-}
-
+  setTodos: PropTypes.func,
+};
 
 export default TodoForm;
