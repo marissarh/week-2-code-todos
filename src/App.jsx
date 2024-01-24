@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import TodoListItems from "./TodoListItems";
+import TodoForm from "./TodoForm";
 
 function App() {
   const [itemToAdd, setItemToAdd] = useState("");
@@ -26,18 +27,8 @@ function App() {
 
   return (
     <>
-      <h1>Todos</h1>
-      <form onSubmit={addItem}>
-        <label htmlFor="todo-input">Todo: </label>
-        <input
-          id="todo-input"
-          type="text"
-          onChange={(event) => setItemToAdd(event.target.value)}
-          value={itemToAdd}
-        />
-        <button type="submit">Add Todo</button>
-      </form>
-      <TodoListItems todos={todos} />
+      <TodoForm addItem={addItem} itemToAdd={itemToAdd} setItemToAdd={setItemToAdd} setTodos={setTodos} />
+      <TodoListItems todos={todos} setTodos={setTodos} />
     </>
   );
 }
