@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import TodoListItems from "./TodoListItems";
+import TodoForm
+ from "./TodoForm";
+ import TodoDelete from './TodoDelete';
 
 function App() {
   const [itemToAdd, setItemToAdd] = useState("");
@@ -13,7 +16,9 @@ function App() {
   ]);
 
   const addItem = (event) => {
+    
     event.preventDefault();
+
 
     if (itemToAdd === "") {
       window.alert("You must type in a value");
@@ -26,18 +31,10 @@ function App() {
 
   return (
     <>
-      <h1>Todos</h1>
-      <form onSubmit={addItem}>
-        <label htmlFor="todo-input">Todo: </label>
-        <input
-          id="todo-input"
-          type="text"
-          onChange={(event) => setItemToAdd(event.target.value)}
-          value={itemToAdd}
-        />
-        <button type="submit">Add Todo</button>
-      </form>
+      
+      <TodoForm addItem={addItem} itemToAdd={itemToAdd} setItemToAdd={setItemToAdd}/>
       <TodoListItems todos={todos} />
+      <TodoDelete setTodos={setTodos}/>
     </>
   );
 }
